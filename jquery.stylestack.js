@@ -1,7 +1,7 @@
 /*
  * jQuery StyleStack - Stack Frames for jQuery Styles
  * (c) 2013 Thomas Millar <millar.thomas@gmail.com>
- * MIT Licensed.
+ * Apache Licensed.
  *
  * http://github.com/thmsmlr/jquery.stylestack
  */
@@ -52,6 +52,7 @@
     function StyleStack(element) {
         this.element = element;
         this.enabled = true;
+        this.stack = [];
     }
     
     
@@ -111,9 +112,7 @@
             oldStyle.properties[key] = styles[key] ? styles[key] : '';
         });
     
-        styleStack.stack ?
-            styleStack.stack.unshift(oldStyle) :
-            (styleStack.stack = [oldStyle]);
+        styleStack.stack.unshift(oldStyle)
     };
     
     var _cssTextParser = function(cssText) {
